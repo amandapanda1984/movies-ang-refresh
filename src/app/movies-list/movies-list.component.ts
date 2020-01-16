@@ -21,4 +21,8 @@ export class MoviesListComponent implements OnInit {
   ngOnInit() {
   }
 
+  details(movie: Movies) {
+    alert(`details for ${movie.title}`);
+  }
+
 }
