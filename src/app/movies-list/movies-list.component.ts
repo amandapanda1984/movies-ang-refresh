@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ɵAPP_ID_RANDOM_PROVIDER } from '@angular/core';
 import { Movie } from '../movie';
 
 @Component({
@@ -8,15 +8,19 @@ import { Movie } from '../movie';
 })
 export class MoviesListComponent implements OnInit {
 
-  
+
 
   @Input() movies: Movie[];
   @Input() name: string;
 
-  constructor() { 
-    
-    
-    }
+  newTitle: string;
+  newCategory: string;
+  newYear: number;
+
+  constructor() {
+
+
+  }
 
   ngOnInit() {
   }
@@ -24,5 +28,9 @@ export class MoviesListComponent implements OnInit {
   details(movie: Movie) {
     alert(`details for ${movie.title}`);
   }
-
+  addMovie() {
+    let movie = new Movie(this.newTitle, this.newCategory, this.newYear);
+    this.movies.push(movie);
+  }
 }
+
